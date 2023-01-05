@@ -1,14 +1,14 @@
 const express = require('express');
-
 require('dotenv').config;
 // to declare our application variable by importing express (which is itself a function)
 const app = require("express")();
+// call the connectDB function
+const  connectDB = require('./src/config/databaseConfig');
 // to use external middlewares,
 // to parse json before the actual data hits the function (convert the request param to json)
 app.use(express.json())
+connectDB();
 // define the router ()
-
-
 app.get('/',(req,res)=>{res.status(200).send({situation:'working test',message:'gdg && wtm'})})
 //another request
 app.post('/postest',(req,res)=>{req.res.json({message:'this one is to test POST request'})})
