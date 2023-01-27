@@ -9,7 +9,7 @@ const  connectDB = require('./src/config/databaseConfig');
 app.use(express.json())
 connectDB();
 // define the router ()
-app.get('/',(req,res)=>{res.status(200).send({situation:'working test',message:'gdg && wtm'})})
+app.get('/',(req,res)=>{res.status(200).send({situation:'working test back again to work', message:'gdg && wtm' , aim:'today'})})
 //another request
 app.post('/postest',(req,res)=>{req.res.json({message:'this one is to test POST request'})})
 app.post('/product/:id', (req,res)=>{
