@@ -20,7 +20,17 @@ const createProd=async()=>{
 }
 const deleteProd=async(id)=>{
     try{
-       const products = await Product.findByIdAndDelete(id)
+       const products = await Product.findByIdAndDelete(id);
+       return products;
+    }catch{
+        console.log(`the result of the operation: ${error.message}`)
+        res.status(500).json({message: "something went wrong while deleting the product"})
+    }
+}
+const updateProd=async(id,title,description)=>{
+    try{
+       const products = await Product.findById(id).update({title,description})
+       return products;
     }catch{
         console.log(`the result of the operation: ${error.message}`)
         res.status(500).json({message: "something went wrong while deleting the product"})
